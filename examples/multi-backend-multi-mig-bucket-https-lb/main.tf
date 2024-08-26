@@ -110,10 +110,10 @@ locals {
     port         = 80
   }
 }
-create_ssl_certificate = true
-managed_ssl_certificate_domains = ["example.com"]
 # [START cloudloadbalancing_ext_http_gce_plus_bucket]
 module "gce-lb-https" {
+  create_ssl_certificate = true
+  managed_ssl_certificate_domains = ["example.com"]
   source  = "terraform-google-modules/lb-http/google"
   version = "~> 10.0"
   name    = var.network_name
